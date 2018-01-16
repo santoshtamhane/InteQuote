@@ -1,0 +1,103 @@
+page-inventory {
+.modal{
+ 
+background-color:rgba(0,0,0,0.7);
+}
+
+hr{
+background-color:#107698;
+color:#107698;
+}
+/*******************
+LOGIN FORM
+*******************/
+
+.procu-form {
+position: absolute;
+top: 5px;
+left: 35px;
+
+width: 86%;
+height: 82%;
+ion-label {
+    margin-left: 5px;
+    font-size: 2 em;
+    color: #107698;
+    background:#fff;
+  }
+text-area {
+    margin-left: 5px;
+    font-size: 2 em;
+    background:#fff;
+  }
+  ion-input {
+    padding: 3px;
+    background:#fff;
+  }
+ion-select {
+    padding: 3px;
+    background:#fff;
+  }
+    
+    
+    background-color: #f3f3f3;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+  form {
+  
+    border: 1px solid #fff;
+    border-radius: 5px;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin-bottom: 32px;
+    button {
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    font-size: 2em;
+    color: map-get($colors,dark);
+    margin-left: 5px;
+  }
+.help{
+font-size: 0.875em;
+    color: #43464B;
+    margin-left: 5px;
+}
+  ion-label {
+    margin-left: 5px;
+    font-size: 2 em;
+    color: #107698;
+  }
+text-area {
+    margin-left: 5px;
+    font-size: 2 em;
+    color: #107698;
+  }
+  ion-input {
+    padding: 3px;
+    background:rgba(0,0,255,0.1);
+  }
+ion-select {
+    padding: 3px;
+    background:rgba(0,0,255,0.1);
+  }
+  .invalid {
+    background:rgba(255,0,0,0.7);
+  }
+
+
+  .error-message .item-inner p{
+    border-bottom: 0 !important;
+    color:red;
+  }
+
+}

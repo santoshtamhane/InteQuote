@@ -1,0 +1,74 @@
+<!--
+  Generated template for the InventoryListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar color="primary">
+    <ion-title>Category</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+  <ion-thumbnail item-start>
+      <img src="assets/icon/room.jpg">
+    </ion-thumbnail>
+  <h2> Rooms</h2>
+   <button ion-button clear item-end  (click)="itemSelected(1)" >View</button>
+  </ion-item>
+  <ion-item>
+  <ion-thumbnail item-start>
+      <img src="assets/icon/furniture.png">
+    </ion-thumbnail>
+  <h2>Product</h2>
+   <button ion-button clear item-end (click)="itemSelected(2)">View</button>
+  </ion-item>
+  
+  <ion-item>
+   <ion-thumbnail item-start>
+      <img src="assets/icon/wood.jpg">
+    </ion-thumbnail>
+  <h2>Internal Material</h2>
+   <button ion-button clear item-end (click)="itemSelected(3)">View</button>
+  </ion-item>
+   
+   <ion-item>
+    <ion-thumbnail item-start>
+      <img src="assets/icon/shutter.png">
+    </ion-thumbnail>
+   <h2>Shutter Material</h2>
+    <button ion-button clear item-end (click)="itemSelected(4)">View</button>
+   </ion-item>
+     
+    <!-- <ion-item>
+    <ion-thumbnail item-start>
+      <img src="assets/icon/mirror,jpg">
+    </ion-thumbnail>
+   <h2>Glass Material</h2>
+    <button ion-button clear item-end (click)="itemSelected(5)">View</button>
+   </ion-item> -->
+   
+    <ion-item>
+     <ion-thumbnail item-start>
+      <img src="assets/icon/appliances.png">
+    </ion-thumbnail>
+    <h2>Appliances</h2>
+     <button ion-button clear item-end (click)="itemSelected(6)">View</button>
+     </ion-item>
+     
+     <ion-item>
+      <ion-thumbnail item-start>
+      <img src="assets/icon/accessories.png">
+    </ion-thumbnail>
+     <h2>Accessories</h2>
+     <button ion-button clear item-end (click)="itemSelected(7)">View</button>
+     </ion-item> 
+      
+</ion-list>
+</ion-content>

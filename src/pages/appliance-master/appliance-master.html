@@ -1,0 +1,76 @@
+<!--
+  Generated template for the MaterialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Appliance</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="ApplianceForm" [class]="bgpat">
+<ion-item *ngIf="showTypetext">
+               <ion-label  stacked color="primary"><ion-icon name="folder" color="primary" style="zoom:2.0"></ion-icon>Product Type</ion-label>
+                    <ion-select formControlName="producttype" [(ngModel)]="producttype"  placeholder="Choose Product Type" (ionChange)="setAppliancesCategories($event)">
+<ion-option></ion-option>
+<ion-option *ngFor="let t of prodtypes|async|unique:'producttype'">{{t.producttype}}</ion-option>
+                    </ion-select>
+                   
+ </ion-item>
+<button *ngIf="showTypetext==true" ion-button clear color="secondary" (click)="createCategory(3)">Add New Product Type</button>
+<ion-item *ngIf="showTypetext==false">
+<ion-label  stacked color="primary"><ion-icon name="folder" color="primary" style="zoom:2.0"></ion-icon>Product Type</ion-label>
+<ion-input formControlName="producttype" [ngModel]="producttype" type='text'  placeholder="New Product Type"></ion-input>
+</ion-item>
+<button *ngIf="showTypetext==false" ion-button clear color="secondary" (click)="createCategory(4)">Choose Category</button>
+
+<ion-item *ngIf="showCategorytext">
+               <ion-label  stacked color="primary"><ion-icon name="folder" color="primary" style="zoom:2.0"></ion-icon>Product Category</ion-label>
+                    <ion-select formControlName="Category" placeholder="Choose Product Category" [compareWith]="comparecatFn">
+<ion-option></ion-option>
+<ion-option *ngFor="let C of Categories|async|unique:'Category'">{{C.Category}}</ion-option>
+                    </ion-select>
+                   
+ </ion-item>
+<button *ngIf="showCategorytext==true" ion-button clear color="secondary" (click)="createCategory(1)">Add New Category</button>
+<ion-item *ngIf="showCategorytext==false">
+<ion-label  stacked color="primary"><ion-icon name="folder" color="primary" style="zoom:2.0"></ion-icon>Category</ion-label>
+<ion-input formControlName="Category" [ngModel]="Category" type='text'  placeholder="New Product Category"></ion-input>
+</ion-item>
+<button *ngIf="showCategorytext==false" ion-button clear color="secondary" (click)="createCategory(2)">Choose Category</button>
+
+
+<ion-item>
+<ion-label  stacked color="primary"><ion-icon name="cog" color="primary" style="zoom:2.0"></ion-icon>Product</ion-label>
+<ion-input formControlName="productname" [ngModel]="productname" type='text'  placeholder="Enter Product Name"></ion-input>
+</ion-item>
+<ion-item class="error-message" *ngIf="!ApplianceForm.controls.productname.valid && ApplianceForm.controls.productname.dirty">
+<p>Product name for {{Category}} required</p>
+</ion-item>
+
+<ion-item>
+<ion-label  stacked color="primary"><ion-icon name="contact" color="primary" style="zoom:2.0"></ion-icon>Vendor</ion-label>
+<ion-input formControlName="vendor" [ngModel]="vendor" type='text'  placeholder="Enter Vendor name"></ion-input>
+</ion-item>
+<ion-item class="error-message" *ngIf="!ApplianceForm.controls.vendor.valid && ApplianceForm.controls.vendor.dirty">
+<p>Vendor for {{productname}} required</p>
+</ion-item>
+
+<ion-item>
+<ion-label  stacked color="primary"><ion-icon name="cash" color="primary" style="zoom:2.0"></ion-icon>Rate</ion-label>
+<ion-input formControlName="rate" [ngModel]="rate" type='telephone'  placeholder="Rate per unit"></ion-input>
+</ion-item>
+
+<ion-item class="error-message" *ngIf="!ApplianceForm.controls.rate.valid && ApplianceForm.controls.rate.dirty">
+<p>Rate for {{productname}} required</p>
+</ion-item>
+
+<button ion-button (click)="saveAppliance()" [disabled]="!ApplianceForm.valid"><ion-icon name="download"></ion-icon>Save Appliance</button> 
+</form>
+</ion-content>

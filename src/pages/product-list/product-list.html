@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ProductListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Product List</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item-group *ngFor="let g of groupedProducts">
+
+      <ion-item-divider secondary><h1>{{g.groupname}}</h1></ion-item-divider>
+      <ion-list>
+      <ion-item-sliding *ngFor="let p of g.products ">
+      <ion-item><h2>{{p.productname}}</h2>
+      <h4>{{p.cost|currency:'INR':'symbol'}}</h4>
+      </ion-item>
+      
+<ion-item-options side="right">
+      <button ion-button (click)="del(p.id)"color="danger">Delete</button>
+      <button ion-button (click)="viewProduct(p.id)">View</button>
+    </ion-item-options>
+    </ion-item-sliding>
+      </ion-list>
+      
+      </ion-item-group> 
+<ion-fab bottom center>
+    <button ion-fab mini tappable><ion-icon name="add" (click)="addProduct()"></ion-icon></button>
+    </ion-fab>
+    <ion-list>
+    <ion-item *ngFor="let gp of gProducts|async">
+    {{gp.groupname}}
+    </ion-item>
+    </ion-list>
+</ion-content>

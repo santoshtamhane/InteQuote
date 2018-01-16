@@ -1,0 +1,47 @@
+<!--
+  Generated template for the ProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Product</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="addProductForm" [class]="bgpat">
+ <ion-item>
+               <ion-label  stacked color="primary"><ion-icon name="home" color="primary" style="zoom:2.0"></ion-icon>Room</ion-label>
+                    <ion-select formControlName="roomname"  placeholder="Choose Room" [compareWith]="compareFn">
+
+<ion-option *ngFor="let rooms of roomList | async" [value]="rooms" >
+      {{rooms.roomname}}
+    </ion-option>
+</ion-select>
+                   
+ </ion-item>
+<ion-item class="error-message" *ngIf="!addProductForm.controls.roomname.valid && addProductForm.controls.roomname.dirty">
+<p>Please select room</p>
+</ion-item> 
+
+<ion-item>
+<ion-label  stacked color="primary"><ion-icon name="cog" color="primary" style="zoom:2.0"></ion-icon>Product</ion-label>
+<ion-input formControlName="productname"  type='text'  placeholder="Enter Product Name"></ion-input>
+</ion-item>
+<ion-item class="error-message" *ngIf="!addProductForm.controls.productname.valid && addProductForm.controls.productname.dirty">
+<p>Product name in {{roomname}} required</p>
+</ion-item>
+
+<ion-item>
+<ion-label  stacked color="primary"><ion-icon name="cash" color="primary" style="zoom:2.0"></ion-icon>Add on Cost</ion-label>
+<ion-input formControlName="cost" [ngModel]="cost" type='telephone'  placeholder="Add on Cost if any"></ion-input>
+</ion-item>
+<button ion-button (click)="saveProduct()" [disabled]="!addProductForm.valid"><ion-icon name="download"></ion-icon> Save Product</button>
+ 
+</form>
+</ion-content>
