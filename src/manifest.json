@@ -3,7 +3,7 @@
   "short_name": "InteQuote",
   "theme_color": "#063852",
   "background_color": "#011a27",
-  "display": "browser",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "/index.html",
   "icons": [
