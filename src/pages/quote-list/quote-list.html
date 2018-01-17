@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-<ion-list>
+<ion-list inset>
   <ion-item-sliding *ngFor="let quote of QuoteList | async">
       <ion-item><h2>{{quote.custname}}</h2>
      <p>Quote:{{quote.grandTotal|currency:'INR':'symbol'}}<p>

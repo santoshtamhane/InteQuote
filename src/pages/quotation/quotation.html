@@ -33,10 +33,10 @@
 </ion-header>
 
 
-<ion-content padding>
-<ion-label> <h2 color='danger'>Total Quote : {{getgrandTotal()|currency:'INR':'symbol'}}</h2></ion-label>
-<form [formGroup]="QuoteForm">
+<ion-content padding class="bgpat">
 
+<form [formGroup]="QuoteForm"class='form-style-7'>
+ <h2>Total Quote Value: {{getgrandTotal()|currency:'INR':'symbol'}}</h2>
 <div [ngSwitch]="info">
 
   <div *ngSwitchCase="'woodwork'">
@@ -52,7 +52,7 @@
             <ion-row>
            <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="home" color="primary" ></ion-icon>Room</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="home" color="primary" ></ion-icon>Room</ion-label>
                     <ion-select formControlName="roomname"  placeholder="Choose Room" (ionChange)="setProductList($event,i)">
 <ion-option></ion-option>
 <ion-option *ngFor="let rooms of productList|async|unique:'roomname'">
@@ -67,7 +67,7 @@
 </ion-col>
 <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
                     <ion-select formControlName="productname"  placeholder="Choose Product" (ionChange)="setMaterialList($event,i)">
 <ion-option></ion-option>
 <ion-option *ngFor="let rp of rpList[i] | async" value="{{rp.id+':'+rp.cost}}" >
@@ -81,7 +81,7 @@
  </ion-col>
  <ion-col>
  <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="leaf" color="primary" ></ion-icon>Internal Material</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="leaf" color="primary" ></ion-icon>Internal Material</ion-label>
                     <ion-select formControlName="intmaterial"  placeholder="Choose Internal Material" >
 <ion-option></ion-option>
 <ion-option *ngFor="let intm of intmatList[i] | async" value="{{intm.psqft}}" >
@@ -95,7 +95,7 @@
  </ion-col>
  <ion-col>
  <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="leaf" color="primary" ></ion-icon>Shutter Material</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="leaf" color="primary" ></ion-icon>Shutter Material</ion-label>
                     <ion-select formControlName="shutmaterial"  placeholder="Choose Shutter Material">
 <ion-option></ion-option>
 <ion-option *ngFor="let shutm of shutmatList[i] | async" value="{{shutm.psqft}}">
@@ -113,17 +113,17 @@
    <ion-row>
    <ion-col>
                     <ion-item>
-                        <ion-label><ion-icon name="code-working" color="primary"></ion-icon> Width(mm)</ion-label>
+                        <ion-label stacked stacked><ion-icon name="code-working" color="primary"></ion-icon> Width(mm)</ion-label>
                     <ion-input type="telephone" formControlName="width"  min =0 step=1 placeholder="Enter width"></ion-input> 
                       </ion-item>
     </ion-col>
 <ion-col>    
 <ion-item>
-                        <ion-label><ion-icon name="code-download" color="primary"></ion-icon> Height(mm)</ion-label>
+                        <ion-label stacked stacked><ion-icon name="code-download" color="primary"></ion-icon> Height(mm)</ion-label>
                     <ion-input type="telephone" formControlName="height"  min =0 step=1 placeholder="Enter height"></ion-input> 
   </ion-item>                   
 </ion-col>
-<ion-col><ion-label>{{setArea(i) | number : '1.2-2'}}  sq Ft   </ion-label>
+<ion-col><ion-label stacked>{{setArea(i) | number : '1.2-2'}}  sq Ft   </ion-label>
       </ion-col>
       
 <ion-col>
@@ -131,7 +131,7 @@
 </ion-row>
  <ion-row>
   <ion-item>
-                        <ion-label><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
+                        <ion-label stacked><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
                     <ion-input type="text" formControlName="woodworkcomm" placeholder="Enter comments"></ion-input> 
                       </ion-item>
   </ion-row>
@@ -163,6 +163,10 @@
    
       <button ion-fab small (click)="addwoodworkdetails(QuoteForm.controls.woodworkdetails.controls.length)" color="dark"><ion-icon name="add" ></ion-icon> Item</button>
 
+
+      
+      
+      
     </ion-col>
     <ion-col center text-center>
      
@@ -184,7 +188,7 @@
             <ion-row>
            <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="folder" color="primary" ></ion-icon>Product Category</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="folder" color="primary" ></ion-icon>Product Category</ion-label>
                     <ion-select formControlName="accCategory"  placeholder="Choose Category" (ionChange)="setAccessoryList($event,j)">
 <ion-option></ion-option>
 <ion-option *ngFor="let cat of Categories|async|unique:'Category'">
@@ -199,7 +203,7 @@
 </ion-col>
 <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
                     <ion-select formControlName="accname"  placeholder="Choose Product" (ionChange)="setAccessoryData($event,j)">
 <ion-option></ion-option>
 <ion-option *ngFor="let acc of accessoriesList[j] | async" value="{{acc.vendor+':'+acc.rate}}" >
@@ -215,19 +219,19 @@
  <ion-row>
    <ion-col>
                     <ion-item>
-                        <ion-label><ion-icon name="code-working" color="primary"></ion-icon> Vendor</ion-label>
+                        <ion-label stacked><ion-icon name="code-working" color="primary"></ion-icon> Vendor</ion-label>
                     <ion-input type="text" formControlName="accVendor"></ion-input> 
                       </ion-item>
     </ion-col>
 <ion-col>    
 <ion-item>
-                        <ion-label><ion-icon name="code-download" color="primary"></ion-icon> Unit Price</ion-label>
+                        <ion-label stacked><ion-icon name="code-download" color="primary"></ion-icon> Unit Price</ion-label>
                     <ion-input formControlName="accprice"></ion-input> 
   </ion-item>                   
 </ion-col>
 <ion-col>    
 <ion-item>
-                        <ion-label><ion-icon name="code-download" color="primary"></ion-icon> Quantity</ion-label>
+                        <ion-label stacked><ion-icon name="code-download" color="primary"></ion-icon> Quantity</ion-label>
                     <ion-input formControlName="accqty"></ion-input> 
   </ion-item>                   
 </ion-col>
@@ -235,7 +239,7 @@
  </ion-row>
   <ion-row>
   <ion-item>
-                        <ion-label><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
+                        <ion-label stacked><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
                     <ion-input type="text" formControlName="acccomm" placeholder="Enter comments"></ion-input> 
                       </ion-item>
   </ion-row>
@@ -286,7 +290,7 @@
             <ion-row>
             <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="cog" color="primary" ></ion-icon>Product Type</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="cog" color="primary" ></ion-icon>Product Type</ion-label>
                     <ion-select formControlName="apptype"  placeholder="Choose Type" (ionChange)="setAppliancesCategory($event,k)">
 <ion-option></ion-option>
 <ion-option *ngFor="let apt of appTypes|async|unique:'producttype'">
@@ -302,7 +306,7 @@
 
            <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="folder" color="primary" ></ion-icon>Product Category</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="folder" color="primary" ></ion-icon>Product Category</ion-label>
                     <ion-select formControlName="appCategory"  placeholder="Choose Category" (ionChange)="setAppliancesList($event,k)">
 <ion-option></ion-option>
 <ion-option *ngFor="let apcat of appcategoriesList[k]|async|unique:'Category'">
@@ -317,7 +321,7 @@
 </ion-col>
 <ion-col>
 <ion-item>
-               <ion-label  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
+               <ion-label stacked  stacked color="primary"><ion-icon name="cube" color="primary" ></ion-icon>Product</ion-label>
                     <ion-select formControlName="appname"  placeholder="Choose Product" (ionChange)="setAppliancesData($event,k)">
 <ion-option></ion-option>
 <ion-option *ngFor="let app of appliancesList[k] | async" value="{{app.vendor+':'+app.rate}}" >
@@ -333,19 +337,19 @@
  <ion-row>
    <ion-col>
                     <ion-item>
-                        <ion-label><ion-icon name="contact" color="primary"></ion-icon> Vendor</ion-label>
+                        <ion-label stacked><ion-icon name="contact" color="primary"></ion-icon> Vendor</ion-label>
                     <ion-input type="text" formControlName="appVendor"></ion-input> 
                       </ion-item>
     </ion-col>
 <ion-col>    
 <ion-item>
-                        <ion-label><ion-icon name="cash" color="primary"></ion-icon> Unit Price</ion-label>
+                        <ion-label stacked><ion-icon name="cash" color="primary"></ion-icon> Unit Price</ion-label>
                     <ion-input formControlName="appprice"></ion-input> 
   </ion-item>                   
 </ion-col>
 <ion-col>    
 <ion-item>
-                        <ion-label><ion-icon name="albums" color="primary"></ion-icon> Quantity</ion-label>
+                        <ion-label stacked><ion-icon name="albums" color="primary"></ion-icon> Quantity</ion-label>
                     <ion-input formControlName="appqty"></ion-input> 
   </ion-item>                   
 </ion-col>
@@ -353,7 +357,7 @@
  </ion-row>
   <ion-row>
   <ion-item>
-                        <ion-label><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
+                        <ion-label stacked><ion-icon name="text" color="primary"></ion-icon> Comments</ion-label>
                     <ion-input type="text" formControlName="appcomm" placeholder="Enter comments"></ion-input> 
                       </ion-item>
   </ion-row>
@@ -398,29 +402,29 @@
 
          <ion-item>
          
-            <ion-label  stacked><ion-icon name="contact" color="primary"></ion-icon> Customer Name</ion-label>
+            <ion-label stacked  stacked><ion-icon name="contact" color="primary"></ion-icon> Customer Name</ion-label>
             
             <ion-input formControlName="custname" type="text" [(ngModel)]="custname" placeholder="Enter Customer Name"></ion-input>
         </ion-item>
 <ion-item>
          
-            <ion-label  stacked><ion-icon name="pin" color="primary"></ion-icon> Customer Address</ion-label>
+            <ion-label stacked  stacked><ion-icon name="pin" color="primary"></ion-icon> Customer Address</ion-label>
             
             <ion-input formControlName="custaddr" type="text-area" [(ngModel)]="custaddr" placeholder="Enter Customer Address"></ion-input>
         </ion-item>
         
         <ion-item>
-            <ion-label  stacked><ion-icon name="phone-portrait" color="primary"></ion-icon> Contact Number</ion-label>
+            <ion-label stacked  stacked><ion-icon name="phone-portrait" color="primary"></ion-icon> Contact Number</ion-label>
             <ion-input formControlName="contactnum" type="number" placeholder="Enter Mobile"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label  stacked><ion-icon name="mail" color="primary"></ion-icon> Email</ion-label>
+            <ion-label stacked  stacked><ion-icon name="mail" color="primary"></ion-icon> Email</ion-label>
             <ion-input formControlName="email" type="email" placeholder="Enter Email"></ion-input>
         </ion-item>
 
         <ion-item>
-                        <ion-label stacked><ion-icon name="contacts" color="primary"></ion-icon> Customer Category:</ion-label>
+                        <ion-label stacked stacked><ion-icon name="contacts" color="primary"></ion-icon> Customer Category:</ion-label>
                           <ion-select formControlName="custcat" placeholder="Choose...">
                             <ion-option> Female 18-25</ion-option>
                             <ion-option> Female 26-35</ion-option>
@@ -434,7 +438,7 @@
         </ion-item>
 
         <ion-item>
-                        <ion-label stacked><ion-icon name="card" color="primary"></ion-icon> Customer Payment Mode:</ion-label>
+                        <ion-label stacked stacked><ion-icon name="card" color="primary"></ion-icon> Customer Payment Mode:</ion-label>
                           <ion-select formControlName="custpay" placeholder="Choose..." >
                             <ion-option> Card</ion-option>
                             <ion-option> Cash</ion-option>
@@ -444,11 +448,11 @@
                             </ion-select>
         </ion-item>
           <ion-item>
-  <ion-label><ion-icon name="calendar" color="primary"></ion-icon>Quotation Due On</ion-label>
+  <ion-label stacked><ion-icon name="calendar" color="primary"></ion-icon>Quotation Due On</ion-label>
   <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="qDueDate"></ion-datetime>
 </ion-item>
         <ion-item>
-                        <ion-label stacked><ion-icon name="card" color="primary"></ion-icon> Status</ion-label>
+                        <ion-label stacked stacked><ion-icon name="card" color="primary"></ion-icon> Status</ion-label>
                           <ion-select formControlName="qStatus" >
                             <ion-option selected> New</ion-option>
                             <ion-option> Approved</ion-option>

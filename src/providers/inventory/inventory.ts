@@ -66,6 +66,7 @@ export class InventoryProvider {
     );
   }
 getroomproductList(room:string): AngularFirestoreCollection<Product> {
+    console.log('room=,',room);
     return this.fireStore.collection<Product>(
       `/productList`,
       ref => ref.where('roomname','==',room.trim())

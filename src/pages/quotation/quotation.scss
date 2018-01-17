@@ -1,3 +1,40 @@
 page-quotation {
+.form-style-7 {
+    margin-left:auto;
+    margin-right:auto;
 
+    max-width: 500px;
+    background: map-get($colors,primary);
+    padding: 20px 20px 20px 20px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #666;
+    
+ * ,option::-moz-placeholder {
+ color:map-get($colors,secondary);
+  font-size:14px !important;
+}
+
+ *,option:-ms-input-placeholder {
+ color:map-get($colors,secondary);
+  font-size:14px !important;
+}
+
+ *,option::-webkit-input-placeholder {
+  text-indent: 0;
+color:map-get($colors,secondary);
+  font-size:14px !important;
+}
+h2{color:map-get($colors,light);
+text-align:center;
+font-size:20px !important}
+}
+.bgpat{
+background-color: #6d695c;
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
+}
 }

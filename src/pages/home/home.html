@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <ion-navbar color="primary">
     <ion-title>Home</ion-title>
 <ion-buttons end>
@@ -10,32 +10,35 @@
 </ion-header>
 
 <ion-content padding class='bgpat'>
-  <h2 style="color:$map-get('primary')">Welcome to InteQuote Dashboard</h2>
-  <ion-label color="secondary">
-    This is the starting point for managing your quotations.
+  <h2 style="color:#fff text-align:middle">Welcome to InteQuote dashboard</h2>
+  <ion-label color="light" style="text-align:center">
+    The easier way to manage your quotes
   </ion-label>
   <ion-row>
   <ion-col>
-  <button ion-item (click)="launchquotelist(1)"class="bgpat" >
-           <ion-card color=primary>
+  
+           <ion-card class = 'buttoncard'>
+     <button ion-item (click)="launchquotelist(1)" >      
   <ion-card-header>
 New Quotations 
   </ion-card-header>
   <ion-card-content>
    
-  <h1 style="font-size:300%;align:center">
+  <h1 style="font-size:300%;align:center" >
 {{countItems}}
 
  
  </h1>
   </ion-card-content>
+  </button>
   </ion-card>
-</button> 
+ 
 
   </ion-col>
   <ion-col>
-    <button ion-item (click)="launchquotelist(1)"class="bgpat" >
-           <ion-card color=primary>
+ 
+           <ion-card class="buttoncard">
+            <button ion-item (click)="launchquotelist(1)"   >
   <ion-card-header>
   New Quotations Value
   </ion-card-header>
@@ -43,15 +46,17 @@ New Quotations
   <h1 style="font-size:300%;align:center">
 <strong> {{this.qtotal|currency:'INR':'symbol'}}</strong></h1>
   </ion-card-content>
+   </button>
   </ion-card>
-  </button>
+ 
   </ion-col>
   </ion-row>
   
   <ion-row>
   <ion-col>
-    <button ion-item (click)="launchquotelist(2)" class="bgpat" >
-           <ion-card color=primary>
+    
+           <ion-card class="buttoncard">
+     <button ion-item (click)="launchquotelist(2)"  >      
   <ion-card-header>
    Wins 
   </ion-card-header>
@@ -63,13 +68,15 @@ New Quotations
  
  </h1>
   </ion-card-content>
+  </button>
   </ion-card>
  
-</button>
+
   </ion-col>
   <ion-col>
-    <button ion-item (click)="launchquotelist(2)"class="bgpat" >
-           <ion-card color=primary>
+   
+           <ion-card class="buttoncard">
+       <button ion-item (click)="launchquotelist(2)" >     
   <ion-card-header>
   Wins worth
   </ion-card-header>
@@ -77,8 +84,10 @@ New Quotations
   <h1 style="font-size:300%;align:center">
 <strong> {{this.qwontotal|currency:'INR':'symbol'}}</strong></h1>
   </ion-card-content>
-  </ion-card>
   </button>
+  </ion-card>
+  
+  
   </ion-col>
   </ion-row>
 

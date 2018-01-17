@@ -16,7 +16,7 @@
 <ion-content padding>
 
 <ion-item-group *ngFor="let g of groupedMaterials">
-      <ion-item-divider light><h1>{{g.groupname}}</h1></ion-item-divider>
+      <ion-item-divider dark><h1>{{g.groupname}}</h1></ion-item-divider>
       <ion-list>
       <ion-item-sliding *ngFor="let m of g.materials">
       <ion-item ><h2>{{m.materialname}}</h2>

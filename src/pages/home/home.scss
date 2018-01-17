@@ -1,17 +1,31 @@
 page-home {
 .bgpat{
-background: rgba(244,234,222,1);
-background: -moz-linear-gradient(top, rgba(244,234,222,1) 0%, rgba(244,234,222,1) 47%, rgba(254,254,254,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(244,234,222,1)), color-stop(47%, rgba(244,234,222,1)), color-stop(100%, rgba(254,254,254,1)));
-background: -webkit-linear-gradient(top, rgba(244,234,222,1) 0%, rgba(244,234,222,1) 47%, rgba(254,254,254,1) 100%);
-background: -o-linear-gradient(top, rgba(244,234,222,1) 0%, rgba(244,234,222,1) 47%, rgba(254,254,254,1) 100%);
-background: -ms-linear-gradient(top, rgba(244,234,222,1) 0%, rgba(244,234,222,1) 47%, rgba(254,254,254,1) 100%);
-background: linear-gradient(to bottom, rgba(244,234,222,1) 0%, rgba(244,234,222,1) 47%, rgba(254,254,254,1) 100%);
-
+background-color: #6d695c;
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
 }
-.card{
+  h2{color:map-get($colors,light);
+  text-align:center;
+  }  
+.buttoncard{
+background-color:map-get($colors,light);
+width: calc(100% - 10px);
+        padding: 14px;
+        box-shadow: 0 12px 14px 0 rgba(0, 0, 0, 0.10);
+border-radius: 24px;
+.button,.item{ background-color:map-get($colors,light);}
+.card,.card-content,.card-header{
+     background-color:map-get($colors,light);
+            font-weight: 200;
+           
+            text-align:center;
+  h1{color:map-get($colors,primary);}      
+}
 
-text-align:center;
 }
 
 }

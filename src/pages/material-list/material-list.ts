@@ -44,6 +44,7 @@ async ionViewWillEnter(){
      this.materialList = await this.inventoryProvider
         .getmaterialList(this.materialtype)
         .valueChanges();
+        this.groupedMaterials= [];
   this.groupMaterial();   
     }
 

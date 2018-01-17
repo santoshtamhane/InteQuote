@@ -29,8 +29,8 @@ import { Observable } from 'rxjs';
 export class ProductPage {
 addProductForm:FormGroup;
  roomList: Observable<Room[]>;
- ProductInfo:any;
-id:string;
+public docid:string;
+
   constructor( public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -41,29 +41,34 @@ id:string;
 this.roomList = this.inventoryProvider
         .getroomList()
         .valueChanges();
-       this.id=this.navParams.get('uid');
+       this.docid=this.navParams.get('uid');
         this.addProductForm = formBuilder.group({
       productname: ['', Validators.compose([Validators.required])],
       roomname:['', Validators.compose([Validators.required])],
       status: [true],
       cost: ['']
-    });      
+    }); 
+console.log('id=',this.docid);    
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductPage');
   }
   ngOnInit(){
-      if(this.id){
-  this.inventoryProvider.getProductInfo(this.id).then(prodinfo=>{
+      if(this.docid){
+  this.inventoryProvider.getProductInfo(this.docid).then(prodinfo=>{
       this.addProductForm.get('productname').setValue(prodinfo.productname);
-      this.addProductForm.get('roomname').setValue(prodinfo.roomname);
       this.addProductForm.get('status').setValue(prodinfo.status);
       this.addProductForm.get('cost').setValue(prodinfo.cost);
-          });
+      this.addProductForm.get('roomname').setValue(prodinfo.roomname);
+      })
       }
   }
-  compareFn(e1: any, e2: any): boolean {
-     return e1 && e2 ? e1 === e2.roomname : e1 === e2;
+  compareFn(e1,e2): boolean {
+     if (typeof e1 === 'string' || e1 instanceof String){
+        return e1 && e2 ? e1 === e2.roomname : e1 === e2;
+     } else{
+         return e1 && e2 ? e1.roomname === e2.roomname : e1 === e2; 
+     }
  }
  
 async saveProduct(): Promise<any> {
@@ -75,23 +80,22 @@ async saveProduct(): Promise<any> {
      loading.onDidDismiss(() => this.navCtrl.pop());
       loading.present();
 
-      const roomname: string = this.addProductForm.value.roomname;
+      const room: string = (typeof this.addProductForm.value.roomname === 'string' || this.addProductForm.value.roomname instanceof String)?this.addProductForm.value.roomname:this.addProductForm.value.roomname.roomname;
       const productname: string = this.addProductForm.value.productname;
-      const cost: number = parseFloat(this.addProductForm.value.cost);
-      
+      const cost: number = parseFloat(this.addProductForm.value.cost?this.addProductForm.value.cost:0);
 
       try {
-          if (this.id){
+          if (this.docid){
             await this.inventoryProvider.updateProduct(
-            this.id,
-          roomname.trim(),
+            this.docid,
+          room.trim(),
           productname.trim(),
           cost
           )  
           }
           else{
         await this.inventoryProvider.createProduct(
-          roomname.trim(),
+          room.trim(),
           productname.trim(),
           cost
           )};

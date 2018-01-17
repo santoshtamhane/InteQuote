@@ -78,18 +78,26 @@ this.inventoryProvider.getMaterialInfo(this.id)
     
       
   }
-  compareroomFn(a1: any, a2: any): boolean {
-     return a1 && a2 ? a1 === a2.roomname : a1 === a2;
+ 
+   compareroomFn(a1,a2): boolean {
+     if (typeof a1 === 'string' || a1 instanceof String){
+        return a1 && a2 ? a1 === a2.roomname : a1 === a2;
+     } else{
+         return a1 && a2 ? a1.roomname === a2.roomname : a1 === a2; 
+     }
  }
+ 
  // https://github.com/ionic-team/ionic/blob/master/src/components/select/select.ts
- compareroomprodFn(e1: any, e2: any): boolean {
-     console.log('e1=',e1,'e2=',e2);
-     return e1 && e2 ? e1 === e2.productname : e1 === e2;
+   compareroomprodFn(e1,e2): boolean {
+     if (typeof e1 === 'string' || e1 instanceof String){
+        return e1 && e2 ? e1 === e2.productname : e1 === e2;
+     } else{
+         return e1 && e2 ? e1.productname === e2.productname : e1 === e2; 
+     }
  }
  
- 
-setProductList(category:string){
-
+setProductList(roomsobj:any){
+var category=roomsobj.roomname;
       this.roomproductList = this.inventoryProvider
         .getroomproductList(category)
         .valueChanges();
@@ -102,9 +110,13 @@ async saveMaterial(): Promise<any> {
       let loading: Loading;
       loading = this.loadingCtrl.create();
       loading.present();
-
-      const roomname: string = this.addMaterialForm.value.roomname;
-      const productname: string = this.addMaterialForm.value.productname;
+const roomname: string =(typeof (this.addMaterialForm.value.roomname) === 'string' || this.addMaterialForm.value.roomname instanceof String)?
+ this.addMaterialForm.value.roomname:
+ this.addMaterialForm.value.roomname.roomname;
+const productname: string = (typeof (this.addMaterialForm.value.productname) === 'string' || this.addMaterialForm.value.productname instanceof String)?
+      this.addMaterialForm.value.productname:
+ this.addMaterialForm.value.productname.productname
+ 
       const materialname: string = this.addMaterialForm.value.materialname;
       const psqft: number = parseFloat(this.addMaterialForm.value.psqft);
       
